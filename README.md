@@ -1,1 +1,1 @@
-Cool Chrome extension :slight_smiling_face: 
+Cool Chrome extension :slightly_smiling_face:
