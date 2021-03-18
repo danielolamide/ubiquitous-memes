@@ -1,13 +1,13 @@
 {
 	"manifest_version": 2,
-
 	"name": "MemeBank",
-	"description": "A cool extension for storing and retrieving memes",
+	"description": "A cool extension for saving and retrieving memes",
 	"version": "0.0.1",
+	"content_security_policy": "script-src 'self' 'sha256-mLn0+BqIoS/4qzbAse5WpJa6kaIYZFF4CUACSSes5VI='; object-src 'self'",
 
 	"browser_action": {
 		"default_popup": "index.html",
-		"default_title": "Open the popup"
+		"default_title": "Meme Bank"
 	},
 	"icons": {
 		"16": "logo.png",
