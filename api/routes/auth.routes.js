@@ -6,7 +6,10 @@ router.get("/", AuthController.get);
 router.get(
 	"/google",
 	passport.authenticate("google", {
-		scope: ["https://www.googleapis.com/auth/plus.login"],
+		scope: [
+			"https://www.googleapis.com/auth/userinfo.email",
+			"https://www.googleapis.com/auth/userinfo.profile",
+		],
 	})
 );
 router.get(
