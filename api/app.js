@@ -3,11 +3,14 @@ const express = require("express");
 const app = express();
 const port = process.env.PORT;
 const connection = require("./config/database");
+const redis = require("redis");
 var passport = require("./config/passport");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 const memesRouter = require("./routes/meme.routes");
 const authRouter = require("./routes/auth.routes");
+const RedisStore = require("connect-redis")(session);
+let redisClient = redis.createClient();
 
 connection.connect(function (err, client) {
 	if (err) console.log(err);
@@ -16,8 +19,9 @@ connection.connect(function (err, client) {
 	});
 	app.use(
 		session({
+			store: new RedisStore({ client: redisClient }),
 			secret: process.env.SESSION_SECRET,
-			resave: true,
+			resave: false,
 			saveUninitialized: true,
 		})
 	);

@@ -35,4 +35,6 @@ router.post("/", imageMulter, function (req, res) {
 	//}
 });
 
+router.get("/search/:q", MemeController.search);
+
 module.exports = router;

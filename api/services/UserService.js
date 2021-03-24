@@ -8,7 +8,8 @@ exports.findUserById = async function (db, query, cb) {
 
 exports.createUser = async function (db, user, cb) {
 	try {
-		db.collection("users").insertOne(user, cb);
+		await db.collection("users").insertOne(user, cb);
+		await db.collection("users").createIndex({ "bank.tags": "text" });
 	} catch (e) {
 		console.log(e);
 	}
