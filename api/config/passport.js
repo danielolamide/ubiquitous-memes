@@ -27,6 +27,7 @@ passport.use(
 							photos: profile.photos[0].value,
 							provider: "google",
 							google: profile._json,
+							bank: [],
 						};
 						UserService.createUser(getDB(), user, function (error, res) {
 							if (error) console.log(error);
@@ -41,11 +42,18 @@ passport.use(
 	)
 );
 passport.serializeUser(function (user, cb) {
-	cb(null, user);
+	cb(null, user.google.sub);
 });
 
-passport.deserializeUser(function (obj, cb) {
-	cb(null, obj);
+passport.deserializeUser(function (id, cb) {
+	UserService.findUserById(
+		getDB(),
+		{ "google.sub": id },
+		function (err, result) {
+			if (err) console.log(result);
+			cb(err, result);
+		}
+	);
 });
 
 module.exports = passport;

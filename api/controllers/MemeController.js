@@ -1,3 +1,4 @@
+var MemeService = require("../services/MemeService");
 exports.get = async function (req, res, next) {
 	try {
 		return res.status(200).json({ message: "Controller working" });
@@ -5,3 +6,4 @@ exports.get = async function (req, res, next) {
 		return res.status(400).json({ message: e.message });
 	}
 };
+
