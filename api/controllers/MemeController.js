@@ -1,11 +1,9 @@
 var getDB = require("../config/database").db;
 var MemeService = require("../services/MemeService");
+
 exports.get = async function (req, res, next) {
-	try {
-		return res.status(200).json({ message: "Controller working" });
-	} catch (e) {
-		return res.status(400).json({ message: e.message });
-	}
+	const memes = await MemeService.getAll(getDB(), req.user.google.sub);
+	res.status(200).send({ data: memes });
 };
 
 exports.search = async function (req, res, next) {
@@ -14,6 +12,5 @@ exports.search = async function (req, res, next) {
 		req.params.q,
 		req.user.google.sub
 	);
-	console.log(memes);
-	res.send({ data: memes });
+	res.status(200).send({ data: memes });
 };
