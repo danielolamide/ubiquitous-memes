@@ -1,6 +1,8 @@
 exports.findUserById = async function (db, query, cb) {
 	try {
-		await db.collection("users").findOne(query, cb);
+		await db
+			.collection("users")
+			.findOne(query, { projection: { bank: 0 } }, cb);
 	} catch (e) {
 		console.log(e);
 	}

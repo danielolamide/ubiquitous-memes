@@ -7,7 +7,7 @@ exports.get = async function (req, res, next) {
 };
 
 exports.login = function (req, res, next) {
-	res.redirect("auth/google");
+	res.redirect("/auth/google");
 };
 
 exports.logout = function (req, res, next) {

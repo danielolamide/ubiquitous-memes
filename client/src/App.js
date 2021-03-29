@@ -1,11 +1,10 @@
+import React from "react";
+import { useAuth } from "./context/AuthContext";
+import Authenticated from "./container/Authenticated";
+import Unauthenticated from "./components/Unauthenticated";
 function App() {
-	return (
-		<div className="flex flex-col w-full p-4">
-			<div className="flex justify-end">
-				<span>Test 1-2</span>
-			</div>
-		</div>
-	);
+	const { user } = useAuth();
+	return user ? <Authenticated /> : <Unauthenticated />;
 }
 
 export default App;
