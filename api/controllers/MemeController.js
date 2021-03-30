@@ -3,7 +3,7 @@ var MemeService = require("../services/MemeService");
 
 exports.get = async function (req, res, next) {
 	const memes = await MemeService.getAll(getDB(), req.user.google.sub);
-	res.status(200).send({ data: memes });
+	res.status(200).send(memes);
 };
 
 exports.search = async function (req, res, next) {
@@ -12,5 +12,5 @@ exports.search = async function (req, res, next) {
 		req.params.q,
 		req.user.google.sub
 	);
-	res.status(200).send({ data: memes });
+	res.status(200).send(memes);
 };
