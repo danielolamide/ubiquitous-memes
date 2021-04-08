@@ -1,5 +1,9 @@
 import React from "react";
 
 export default function MemeCard({ meme }) {
-	return <img src={meme.url} />;
+	return (
+		<a href={meme.url} download={meme.tags[0]}>
+			<img src={meme.url} />
+		</a>
+	);
 }

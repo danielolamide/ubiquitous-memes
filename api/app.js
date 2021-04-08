@@ -26,8 +26,15 @@ connection.connect(function (err, client) {
 			saveUninitialized: true,
 		})
 	);
-	app.use(cors({ origin: "http://localhost:3000", credentials: true }));
-	app.use(bodyParser.urlencoded({ extended: false }));
+	app.use(
+		cors({
+			//origin: "chrome-extension://ehainlmdpjgnkjbmfkekmifnfkfnbejo",
+			origin: "http://localhost:3000",
+			credentials: true,
+		})
+	);
+	//app.use(bodyParser.urlencoded({ extended: false }));
+	app.use(bodyParser.json());
 	app.use(passport.initialize());
 	app.use(passport.session());
 	app.use("/memes", memesRouter);

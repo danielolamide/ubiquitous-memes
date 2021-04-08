@@ -3,7 +3,7 @@
 	"name": "Meme Bank",
 	"description": "A cool extension for saving and retrieving memes",
 	"version": "0.0.1",
-	"content_security_policy": "script-src 'self' 'sha256-pextbThv5iJigRHNaeuJXBnMNJZthOh1rLc/XZY1cgc='; object-src 'self'",
+	"content_security_policy": "script-src 'self' 'sha256-/Kq33Iu4u9XrXuGT1z5bPUlJxLqqGeYH3DAU7sVVnyU='; object-src 'self'",
 
 	"browser_action": {
 		"default_popup": "index.html",

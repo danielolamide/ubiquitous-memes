@@ -1,7 +1,7 @@
 import React from "react";
 import Layout from "../components/Layout";
 import { Tabs } from "../container/Tabs";
-import Upload from "../container/Upload";
+import { Upload } from "../container/Upload";
 import Library from "../container/Library";
 import TabButton from "./ui/TabButton";
 import TabView from "../components/ui/TabView";

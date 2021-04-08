@@ -16,9 +16,11 @@ export default function Library() {
 	}
 	return (
 		<div className="w-full">
-			{data[0].bank.map((meme, index) => {
-				return <MemeCard meme={meme} key={index} />;
-			})}
+			<div className="grid grid-cols-5 gap-4">
+				{data[0].bank.map((meme, index) => {
+					return <MemeCard meme={meme} key={index} />;
+				})}
+			</div>
 		</div>
 	);
 }

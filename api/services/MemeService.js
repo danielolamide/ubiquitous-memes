@@ -1,8 +1,9 @@
-exports.createMeme = async function (db, query, meme, cb) {
+exports.createMeme = async function (db, query, meme, ) {
 	try {
-		await db
+		const result = await db
 			.collection("users")
-			.updateOne(query, { $push: { bank: meme } }, cb);
+			.updateOne(query, { $push: { bank: meme } });
+		return result;
 	} catch (e) {
 		console.log(e);
 	}
